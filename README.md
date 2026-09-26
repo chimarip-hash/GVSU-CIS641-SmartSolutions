@@ -4,8 +4,7 @@ Smart Solutions is developing a Life Counter App for Magic: The Gathering. The a
 
 ## Team Members and Roles
 
-* [Puja Chimariya](https://github.com/chimarip-hash/CIS641-HW2-Chimariya) (Project Manager, Business Analyst)
-
+* [Puja Chimariya](https://github.com/chimarip-hash/CIS641-HW2-Chimariya) (Documentation Coordinator, Requirements Analyst, Repository Manager)
 ## Prerequisites
 
 To be determined.
