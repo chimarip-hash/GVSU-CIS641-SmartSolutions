@@ -1,13 +1,15 @@
-# Team Name
+# Smart Solutions
 
-Project description (~1 paragraph)
+Smart Solutions is developing a Life Counter App for Magic: The Gathering. The application will allow two players to track their life points, add or subtract points, view their current scores, and reset the game. The goal is to make life-point tracking simple and accurate.
 
 ## Team Members and Roles
 
-* Member 1 (Role 1, Role 2)
-* Member 2 (Role 3, Role 4)
-* Member 3 (Role 5, Role 6)
+* [Puja Chimariya](https://github.com/chimarip-hash/CIS641-HW2-Chimariya) (Project Manager, Business Analyst)
 
 ## Prerequisites
 
+To be determined.
+
 ## Run Instructions
+
+To be determined.
