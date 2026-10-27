@@ -16,4 +16,15 @@ To be determined.
 
 ## Run Instructions
 
-To be determined.
+Open the Life Counter website:
+https://chimarip-hash.github.io/GVSU-CIS641-SmartSolutions/life-counter.html
+
+1. Enter a name for each player.
+2. Both players start with 20 life points.
+3. Enter a positive whole number, such as 1 or 5.
+4. Click Add or Subtract for the player whose life total you want to change.
+5. Click Reset to return both life totals to 20. Player names stay the same.
+
+No installation is needed. The website runs in a web browser on a computer or phone.
+
+Refreshing or closing the page clears the current game.
