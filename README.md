@@ -12,7 +12,7 @@ Both members share development tasks, review the project together, and discuss i
 
 ## Prerequisites
 
-To be determined.
+A web browser and an internet connection are needed to open the hosted website. No additional software is required.
 
 ## Run Instructions
 
