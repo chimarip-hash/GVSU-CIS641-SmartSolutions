@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Solutions | Life Counter</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      color: #292335;
+      background: #f2f0f8;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1, .intro, .reset-area { text-align: center; }
+
+    h1 { color: #514272; }
+
+    .players {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .player {
+      min-width: 0;
+      padding: 24px;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 3px 12px #24233515;
+    }
+
+    h2 { margin-top: 0; }
+
+    label {
+      display: block;
+      margin: 16px 0 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .life {
+      margin: 12px 0;
+      font-size: 64px;
+      font-weight: bold;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .life-label { text-align: center; }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button {
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 8px;
+      background: #514272;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .buttons button { flex: 1; }
+
+    button:hover { background: #3d3058; }
+
+    button:focus-visible, input:focus-visible {
+      outline: 3px solid #9876d0;
+      outline-offset: 3px;
+    }
+
+    .error {
+      min-height: 40px;
+      color: #a51d31;
+      font-size: 14px;
+    }
+
+    a { color: #493578; }
+
+    @media (max-width: 600px) {
+      .players { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Life Counter</h1>
+    <p class="intro">
+      Magic: The Gathering — two players, starting at 20 life.
+    </p>
+
+    <div class="players">
+      <section class="player" aria-labelledby="heading1">
+        <h2 id="heading1">Player 1</h2>
+
+        <label for="name1">Player name</label>
+        <input id="name1" type="text"
+               placeholder="Player 1" maxlength="40">
+
+        <p class="life-label">Life total</p>
+        <p id="life1" class="life" aria-live="polite">20</p>
+
+        <label for="amount1">Amount to add or subtract</label>
+        <input id="amount1" type="number"
+               min="1" step="1" value="1"
+               aria-describedby="error1">
+
+        <div class="buttons">
+          <button type="button" data-player="1" data-change="1">
+            Add
+          </button>
+          <button type="button" data-player="1" data-change="-1">
+            Subtract
+          </button>
+        </div>
+
+        <p id="error1" class="error" role="alert"></p>
+      </section>
+
+      <section class="player" aria-labelledby="heading2">
+        <h2 id="heading2">Player 2</h2>
+
+        <label for="name2">Player name</label>
+        <input id="name2" type="text"
+               placeholder="Player 2" maxlength="40">
+
+        <p class="life-label">Life total</p>
+        <p id="life2" class="life" aria-live="polite">20</p>
+
+        <label for="amount2">Amount to add or subtract</label>
+        <input id="amount2" type="number"
+               min="1" step="1" value="1"
+               aria-describedby="error2">
+
+        <div class="buttons">
+          <button type="button" data-player="2" data-change="1">
+            Add
+          </button>
+          <button type="button" data-player="2" data-change="-1">
+            Subtract
+          </button>
+        </div>
+
+        <p id="error2" class="error" role="alert"></p>
+      </section>
+    </div>
+
+    <div class="reset-area">
+      <button id="reset" type="button">Reset</button>
+      <p>Reset returns both life totals to 20 and keeps player names.</p>
+      <p>Refreshing or closing this page clears the current game.</p>
+      <a href="./">Back to our team website</a>
+    </div>
+  </main>
+
+  <script>
+    const life = { 1: 20, 2: 20 };
+
+    function changeLife(player, direction) {
+      const input = document.getElementById("amount" + player);
+      const error = document.getElementById("error" + player);
+      const amount = Number(input.value);
+
+      if (!Number.isSafeInteger(amount) || amount <= 0) {
+        error.textContent = "Enter a positive whole number, such as 1 or 5.";
+        return;
+      }
+
+      const newTotal = life[player] + direction * amount;
+
+      if (!Number.isSafeInteger(newTotal)) {
+        error.textContent = "This number is too large. Enter a smaller amount.";
+        return;
+      }
+
+      error.textContent = "";
+      life[player] = newTotal;
+      document.getElementById("life" + player).textContent = newTotal;
+    }
+
+    document.querySelectorAll("[data-player]").forEach(function(button) {
+      button.addEventListener("click", function() {
+        changeLife(
+          Number(button.dataset.player),
+          Number(button.dataset.change)
+        );
+      });
+    });
+
+    document.getElementById("reset").addEventListener("click", function() {
+      [1, 2].forEach(function(player) {
+        life[player] = 20;
+        document.getElementById("life" + player).textContent = "20";
+        document.getElementById("amount" + player).value = "1";
+        document.getElementById("error" + player).textContent = "";
+      });
+    });
+  </script>
+</body>
+</html>
