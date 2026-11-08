@@ -110,7 +110,7 @@
       Magic: The Gathering — two players, starting at 20 life.
     </p>
 
-    <div class="players">
+        <div id="players" class="players">
       <section class="player" aria-labelledby="heading1">
         <h2 id="heading1">Player 1</h2>
 
@@ -199,13 +199,16 @@
       document.getElementById("life" + player).textContent = newTotal;
     }
 
-    document.querySelectorAll("[data-player]").forEach(function(button) {
-      button.addEventListener("click", function() {
+        // One listener on the players box handles every Add and Subtract button,
+    // including buttons for players added later.
+    document.getElementById("players").addEventListener("click", function(event) {
+      const button = event.target.closest("[data-change]");
+      if (button) {
         changeLife(
           Number(button.dataset.player),
           Number(button.dataset.change)
         );
-      });
+      }
     });
 
     document.getElementById("reset").addEventListener("click", function() {
