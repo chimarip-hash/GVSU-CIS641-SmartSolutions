@@ -138,6 +138,7 @@
         </div>
 
         <p id="error1" class="error" role="alert"></p>
+        <button type="button" data-reset-player>Reset Player</button>
         <button type="button" data-remove>Remove Player</button>
       </section>
 
@@ -166,6 +167,7 @@
         </div>
 
         <p id="error2" class="error" role="alert"></p>
+       <button type="button" data-reset-player>Reset Player</button>
         <button type="button" data-remove>Remove Player</button>
       </section>
     </div>
@@ -282,6 +284,64 @@ document.getElementById("players").addEventListener("click", function(event) {
 
   delete life[player];
   card.remove();
+  
+  const remainingCards = playersBox.querySelectorAll(".player");
+  const updatedLife = {};
+
+  remainingCards.forEach(function(card, index) {
+    const oldPlayer = Number(
+      card.querySelector("[data-player]").dataset.player
+    );
+    const newPlayer = index + 1;
+
+    updatedLife[newPlayer] = life[oldPlayer];
+
+    card.querySelector("h2").textContent = "Player " + newPlayer;
+    card.querySelector("h2").id = "heading" + newPlayer;
+    card.setAttribute("aria-labelledby", "heading" + newPlayer);
+
+    const name = card.querySelector('input[type="text"]');
+    name.id = "name" + newPlayer;
+    name.placeholder = "Player " + newPlayer;
+    card.querySelector('label[for^="name"]').htmlFor = name.id;
+
+    card.querySelector(".life").id = "life" + newPlayer;
+
+    const amount = card.querySelector('input[type="number"]');
+    amount.id = "amount" + newPlayer;
+    amount.setAttribute("aria-describedby", "error" + newPlayer);
+    card.querySelector('label[for^="amount"]').htmlFor = amount.id;
+
+    const error = card.querySelector(".error");
+    error.id = "error" + newPlayer;
+
+    card.querySelectorAll("[data-player]").forEach(function(button) {
+      button.dataset.player = newPlayer;
+    });
+  });
+
+  Object.keys(life).forEach(function(key) {
+    delete life[key];
+  });
+
+  Object.assign(life, updatedLife);
+  nextPlayer = remainingCards.length + 1;
+
+});
+
+document.getElementById("players").addEventListener("click", function(event) {
+  const button = event.target.closest("[data-reset-player]");
+  if (!button) return;
+
+  const card = button.closest(".player");
+  const player = Number(
+    card.querySelector("[data-player]").dataset.player
+  );
+
+  life[player] = 20;
+  document.getElementById("life" + player).textContent = "20";
+  document.getElementById("amount" + player).value = "1";
+  document.getElementById("error" + player).textContent = "";
 });
 
   </script>
