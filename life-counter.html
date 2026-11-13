@@ -138,6 +138,7 @@
         </div>
 
         <p id="error1" class="error" role="alert"></p>
+        <button type="button" data-remove>Remove Player</button>
       </section>
 
       <section class="player" aria-labelledby="heading2">
@@ -165,6 +166,7 @@
         </div>
 
         <p id="error2" class="error" role="alert"></p>
+        <button type="button" data-remove>Remove Player</button>
       </section>
     </div>
 
@@ -263,6 +265,23 @@ document.getElementById("add-player").addEventListener("click", function() {
   error.textContent = "";
 
   document.getElementById("players").appendChild(card);
+});
+
+document.getElementById("players").addEventListener("click", function(event) {
+  const button = event.target.closest("[data-remove]");
+  if (!button) return;
+
+  const playersBox = document.getElementById("players");
+
+  if (playersBox.children.length <= 2) {
+    return;
+  }
+
+  const card = button.closest(".player");
+  const player = Number(card.querySelector("[data-player]").dataset.player);
+
+  delete life[player];
+  card.remove();
 });
 
   </script>
