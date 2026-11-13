@@ -221,6 +221,48 @@
         document.getElementById("error" + player).textContent = "";
       });
     });
+    
+let nextPlayer = 3;
+
+document.getElementById("add-player").addEventListener("click", function() {
+  const player = nextPlayer;
+  nextPlayer++;
+
+  life[player] = 20;
+
+  const card = document.querySelector(".player").cloneNode(true);
+
+  card.setAttribute("aria-labelledby", "heading" + player);
+  card.querySelector("h2").id = "heading" + player;
+  card.querySelector("h2").textContent = "Player " + player;
+
+  const name = card.querySelector('input[type="text"]');
+  name.id = "name" + player;
+  name.value = "";
+  name.placeholder = "Player " + player;
+  card.querySelector('label[for^="name"]').htmlFor = name.id;
+
+  const total = card.querySelector(".life");
+  total.id = "life" + player;
+  total.textContent = "20";
+
+  const amount = card.querySelector('input[type="number"]');
+  amount.id = "amount" + player;
+  amount.value = "1";
+  amount.setAttribute("aria-describedby", "error" + player);
+  card.querySelector('label[for^="amount"]').htmlFor = amount.id;
+
+  card.querySelectorAll("[data-player]").forEach(function(button) {
+    button.dataset.player = player;
+  });
+
+  const error = card.querySelector(".error");
+  error.id = "error" + player;
+  error.textContent = "";
+
+  document.getElementById("players").appendChild(card);
+});
+
   </script>
 </body>
 </html>
