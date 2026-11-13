@@ -170,8 +170,9 @@
 
     <div class="reset-area">
       <button id="reset" type="button">Reset</button>
-      <p>Reset returns both life totals to 20 and keeps player names.</p>
-      <p>Refreshing or closing this page clears the current game.</p>
+      <p>Reset returns all life totals to 20 and keeps player names.</p>
+
+    <p>Refreshing or closing this page clears the current game.</p>
       <a href="./">Back to our team website</a>
     </div>
   </main>
@@ -214,7 +215,8 @@
     });
 
     document.getElementById("reset").addEventListener("click", function() {
-      [1, 2].forEach(function(player) {
+     Object.keys(life).forEach(function(player) {
+  
         life[player] = 20;
         document.getElementById("life" + player).textContent = "20";
         document.getElementById("amount" + player).value = "1";
