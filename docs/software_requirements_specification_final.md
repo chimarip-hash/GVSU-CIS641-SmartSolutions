@@ -185,7 +185,6 @@ These tables connect the multiplayer Life Counter Website diagrams to the requir
 | SEQ1 | Reset an individual player | FR24 |
 | SEQ1 | Remove a player while maintaining a minimum of two players | FR10 |
 | SEQ1 | Reset all players | FR21, FR22, FR23, FR25 |
-
 ## State Machine Diagram Traceability
 
 | Artifact ID | Artifact Name | Requirement ID |
