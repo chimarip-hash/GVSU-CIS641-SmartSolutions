@@ -1,13 +1,13 @@
 # Overview
 
-This document describes the requirements for the Smart Solutions Life Counter Website for Magic: The Gathering. The current version will help two players track their life totals, add or subtract life points, and reset the totals for a new game.
+This document describes the requirements for the Smart Solutions Life Counter Website for Magic: The Gathering. The website will allow two or more players to track their life totals, add or subtract life points, add or remove players, and reset life totals for a new game.
 
 # Functional Requirements
 
 ## Player Setup
 
-- FR1: The website shall allow users to enter a name for each of the two players.
-- FR2: The website shall display both players' names and life totals at the same time.
+- FR1: The website shall allow users to enter a name for each player and support adding or removing players, with a minimum of two players.
+- FR2: The website shall display all players' names and life totals at the same time.
 
 ## Starting Life Total
 
@@ -20,7 +20,7 @@ This document describes the requirements for the Smart Solutions Life Counter We
 
 ## Resetting the Game
 
-- FR6: The website shall provide a Reset button that returns both players' life totals to 20 points.
+- FR6: The website shall provide options to reset an individual player's life total or reset all players' life totals to 20 points while keeping their names.
 
 # Non-Functional Requirements
 
@@ -30,7 +30,7 @@ This document describes the requirements for the Smart Solutions Life Counter We
 
 ## Browser Compatibility
 
-- NFR2: The website shall support player setup, adding life, subtracting life, and resetting in Chrome, Firefox, Edge, and Safari.
+- NFR2: The website shall support player setup, adding and removing players, adjusting life totals, and resetting in Chrome, Firefox, Edge, and Safari.
 
 ## Screen Layout
 
@@ -38,7 +38,7 @@ This document describes the requirements for the Smart Solutions Life Counter We
 
 ## Clear Labels
 
-- NFR4: The website shall label the life adjustment buttons "Add" and "Subtract" and the game reset button "Reset."
+- NFR4: The website shall clearly label the buttons "Add," "Subtract," "Add Player," "Remove Player," "Reset," and "Reset All."
 
 ## Calculation Accuracy
 
