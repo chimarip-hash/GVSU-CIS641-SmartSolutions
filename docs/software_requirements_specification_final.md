@@ -181,10 +181,10 @@ These tables connect the multiplayer Life Counter Website diagrams to the requir
 | Artifact ID | Artifact Name | Requirement ID |
 | --- | --- | --- |
 | SEQ1 | Add a new player | FR1, FR5 |
-| SEQ2 | Adjust a selected player's life total | FR8, FR9, FR14, FR15 |
-| SEQ3 | Remove a player while maintaining a minimum of two players | FR10 |
-| SEQ4 | Reset an individual player | FR24 |
-| SEQ5 | Reset all players | FR21, FR22, FR23, FR25 |
+| SEQ1 | Subtract life points from the selected player | FR8, FR9, FR15 |
+| SEQ1 | Reset an individual player | FR24 |
+| SEQ1 | Remove a player while maintaining a minimum of two players | FR10 |
+| SEQ1 | Reset all players | FR21, FR22, FR23, FR25 |
 
 ## State Machine Diagram Traceability
 
