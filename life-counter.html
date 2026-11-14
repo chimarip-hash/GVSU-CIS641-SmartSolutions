@@ -84,6 +84,11 @@
     .buttons button { flex: 1; }
 
     button:hover { background: #3d3058; }
+    button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
     button:focus-visible, input:focus-visible {
       outline: 3px solid #9876d0;
@@ -107,7 +112,7 @@
   <main>
     <h1>Life Counter</h1>
     <p class="intro">
-      Magic: The Gathering — two players, starting at 20 life.
+     Magic: The Gathering — two or more players, each starting at 20 life.
     </p>
 <div class="reset-area">
   <button id="add-player" type="button">Add Player</button>
@@ -173,8 +178,8 @@
     </div>
 
     <div class="reset-area">
-      <button id="reset" type="button">Reset</button>
-      <p>Reset returns all life totals to 20 and keeps player names.</p>
+      <button id="reset" type="button">Reset All</button>
+      <p>Reset All returns every player's life total to 20 and keeps player names.</p>
 
     <p>Refreshing or closing this page clears the current game.</p>
       <a href="./">Back to our team website</a>
@@ -229,6 +234,16 @@
     });
     
 let nextPlayer = 3;
+    
+function updateRemoveButtons() {
+  const cards = document.querySelectorAll("#players .player");
+  const onlyTwoPlayers = cards.length <= 2;
+
+  cards.forEach(function(card) {
+    card.querySelector("[data-remove]").disabled = onlyTwoPlayers;
+  });
+}
+
 
 document.getElementById("add-player").addEventListener("click", function() {
   const player = nextPlayer;
@@ -267,6 +282,7 @@ document.getElementById("add-player").addEventListener("click", function() {
   error.textContent = "";
 
   document.getElementById("players").appendChild(card);
+updateRemoveButtons();
 });
 
 document.getElementById("players").addEventListener("click", function(event) {
@@ -325,10 +341,10 @@ document.getElementById("players").addEventListener("click", function(event) {
   });
 
   Object.assign(life, updatedLife);
-  nextPlayer = remainingCards.length + 1;
+nextPlayer = remainingCards.length + 1;
+updateRemoveButtons();
 
 });
-
 document.getElementById("players").addEventListener("click", function(event) {
   const button = event.target.closest("[data-reset-player]");
   if (!button) return;
@@ -343,6 +359,7 @@ document.getElementById("players").addEventListener("click", function(event) {
   document.getElementById("amount" + player).value = "1";
   document.getElementById("error" + player).textContent = "";
 });
+    updateRemoveButtons();
 
   </script>
 </body>
