@@ -5,9 +5,9 @@ Smart Solutions is developing a Life Counter App for Magic: The Gathering. The a
 ## Team Members and Roles
 
 - [Puja Chimariya](https://github.com/chimarip-hash/CIS641-HW2-Chimariya) — **Developer, UI Designer, Documentation Coordinator, and Repository Manager:** Works on the website and demo, designs the layout, prepares documentation, and manages the team repository.
-- [Bryan Nelson](https://github.com/nelsonbr613/CIS641-HW2-Nelson) —**&#x20;Game Requirements and Features Lead, and Testing Coordinator:** Works on website development, explains the game rules and features, and tests the website.
+- [Bryan Nelson](https://github.com/nelsonbr613/CIS641-HW2-Nelson) — **Game Requirements and Features Lead, and Testing Coordinator:** Works on game requirements, explains the game rules and features, and tests the website.
 
-Both members share development tasks, review the project together, and discuss improvements.
+Both members collaborate on the project, contribute according to their assigned roles, review progress together, and discuss improvements.
 
 ## Prerequisites
 
