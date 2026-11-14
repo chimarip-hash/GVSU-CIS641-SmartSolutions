@@ -78,7 +78,7 @@ The functional requirements describe what the website shall do. The non-function
 
 | ID | Requirement |
 | --- | --- |
-| NFR6 | The website shall allow users to reach every input field, button, and link using the Tab key. |
+| NFR6 | The website shall allow users to reach every enabled input field, enabled button, and link using the Tab key. |
 | NFR7 | The website shall display a visible focus indicator on the field, button, or link selected using the keyboard. |
 | NFR8 | The website shall allow users to activate every enabled button using the keyboard. |
 | NFR9 | The website shall provide programmatically associated labels so a screen reader can identify each input field. |
