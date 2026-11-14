@@ -164,32 +164,36 @@ If a release causes a serious problem, the team will restore the last working ve
 
 # Traceability Links
 
-These tables connect the project diagrams to the requirements they represent. Diagram references must be checked against the updated multiplayer diagrams before final submission.
+These tables connect the multiplayer Life Counter Website diagrams to the requirements they represent.
 
 ## Class Diagram Traceability
 
 | Artifact Name | Requirement ID | Connection |
 | --- | --- | --- |
-| Life Counter | FR7, FR8 | Displays each player's life total and updates it after an adjustment. |
-| Gain Life | FR14 | Adds the entered amount to a selected player's life total. |
-| Lose Life | FR15 | Subtracts the entered amount from a selected player's life total. |
-| Reset Button | FR22, FR24 | Resets all players or an individual player's life total to 20. |
-| Player Management | FR1, FR5, FR10 | Supports multiple players and allows players to be added or removed. |
+| Website UI | FR2, FR7, FR8, FR19 | Displays player information, life totals, and input error messages. |
+| Player Management | FR1, FR5, FR6, FR10 | Manages multiple players and maintains a minimum of two players. |
+| Player | FR3, FR4, FR7, FR14, FR15 | Represents individual player information and life adjustments. |
+| Reset Player | FR24 | Resets the selected player's life total to 20. |
+| Reset All | FR21, FR22, FR23, FR25 | Resets all life totals while preserving player names and player count. |
 
 ## Sequence Diagram Traceability
 
 | Artifact ID | Artifact Name | Requirement ID |
 | --- | --- | --- |
-| SEQ1 | Subtract 5 life points and display the updated total | FR15, FR8 |
+| SEQ1 | Add a new player | FR1, FR5 |
+| SEQ2 | Adjust a selected player's life total | FR8, FR9, FR14, FR15 |
+| SEQ3 | Remove a player while maintaining a minimum of two players | FR10 |
+| SEQ4 | Reset an individual player | FR24 |
+| SEQ5 | Reset all players | FR21, FR22, FR23, FR25 |
 
 ## State Machine Diagram Traceability
 
 | Artifact ID | Artifact Name | Requirement ID |
 | --- | --- | --- |
-| STATE1 | Initialize the LifeCounter with 20 life points | FR6 |
-| STATE1 | Add or subtract life points while tracking life | FR14, FR15 |
-| STATE1 | Reset the LifeCounter to 20 life points | FR22, FR24 |
+| STATE1 | Initialize a player with 20 life points | FR5, FR6 |
+| STATE1 | Track life additions and subtractions | FR14, FR15 |
+| STATE1 | Reject invalid life adjustments | FR16, FR17, FR18, FR19, FR20 |
+| STATE1 | Reset life totals to 20 | FR22, FR24 |
+| STATE1 | Remove a player while maintaining a minimum of two players | FR10 |
 
-Both diagrams are included in [Sequence and State Diagrams](../artifacts/Puja_Chimariya_Sequence_State_Diagrams.pdf).
-
-**Note:** The linked diagrams are the existing versions. They must be reviewed and updated as needed to match the multiplayer functionality before final submission.
+The updated class, sequence, and state machine diagrams are included in [Multiplayer Life Counter Diagrams](../artifacts/Multiplayer_Life_Counter_Diagrams.pdf).
