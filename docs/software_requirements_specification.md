@@ -38,7 +38,7 @@ This document describes the requirements for the Smart Solutions Life Counter We
 
 ## Clear Labels
 
-- NFR4: The website shall clearly label the buttons "Add," "Subtract," "Add Player," "Remove Player," "Reset," and "Reset All."
+- NFR4: The website shall clearly label the buttons "Add," "Subtract," "Add Player," "Remove Player," "Reset Player," and "Reset All."
 
 ## Calculation Accuracy
 
